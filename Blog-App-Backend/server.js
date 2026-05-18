@@ -1,3 +1,4 @@
+const cors = require("cors");
 import exp from "express";
 import { connect } from "mongoose";
 import { config } from "dotenv";
@@ -25,6 +26,11 @@ app.use(exp.json());
 //add cookie parser middleware
 app.use(cookieParser());
 
+
+app.use(cors({
+  origin: "https://mern-assign-mhz7-dssctsh87-abhinav-kesani-s-projects.vercel.app",
+  credentials: true
+}));
 //Routes
 //connect APIs
 app.use("/user-api", userRoute);
