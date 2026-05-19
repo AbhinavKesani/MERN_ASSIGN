@@ -18,10 +18,19 @@ const allowedOrigins = [
   process.env.FRONTEND_URL,
 ].filter(Boolean);
 
-app.use(cors({
-  origin: allowedOrigins,
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("CORS policy does not allow this origin."));
+    }
+  },
   credentials: true,
-}));
+};
+
+app.options("*", cors(corsOptions));
+app.use(cors(corsOptions));
 
 app.use(exp.json());
 app.use(cookieParser());
