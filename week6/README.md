@@ -1,34 +1,29 @@
-## Week 6 — Assignments & Responsive Layouts
 
-This folder contains the Week 6 assignments and small frontend projects focusing on Bootstrap and responsive design.
+---
 
-Contents
-- `Assignment10/` — assignment 10 code and resources
-- `Assignment9/` — assignment 9 code and resources
-- `bootstrapAssignment1/` — Bootstrap practice project(s)
-- `responsiveWebsite/` — responsive layout exercises and demos
+## week6 README.md
 
-Quick start
-- Frontend projects (Bootstrap / responsive): open the HTML files in a browser or serve with a static server.
+```md id="p7q8r9"
+# Week 6
 
-Example (serve with a simple static server):
+## Frontend Assignments
 
-```bash
-# from the project root or the specific folder
-npx http-server ./week6/responsiveWebsite -p 8080
-# then open http://localhost:8080
-```
+This week contains frontend responsive web design projects.
 
-- If a subfolder includes a `package.json`, run:
+## Projects
 
-```bash
-cd <subfolder>
-npm install
-npm start
-```
+- Assignment9
+- Assignment10
+- bootstrapAssignment1
+- responsiveWebsite
 
-Notes
-- Each assignment folder contains its own README or instructions when applicable — open the folder to view details.
-- Use browser devtools to test responsive breakpoints and layout behavior.
+## Technologies
 
-If you want, I can: add per-assignment summaries, inline comments, or create quick visual demos for each project.
+- HTML
+- CSS
+- Bootstrap
+- JavaScript
+
+## Run
+
+Open `index.html` in browser.
