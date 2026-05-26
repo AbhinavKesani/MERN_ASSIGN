@@ -30,34 +30,27 @@ function AddUser() {
 
       if (res.status === 201) {
         navigate("/users-list")
-      }
-      else {
+      } else {
         throw new Error(result.message || "Error occurred")
       }
 
-    }
-    catch (err) {
+    } catch (err) {
+
       setError(err)
-    }
-    finally {
+
+    } finally {
+
       setLoading(false)
+
     }
   }
 
   if (loading) {
-    return (
-      <p className='text-center text-2xl text-blue-500'>
-        Loading...
-      </p>
-    )
+    return <p>Loading...</p>
   }
 
   if (error) {
-    return (
-      <p className='text-center text-2xl text-red-500'>
-        {error.message}
-      </p>
-    )
+    return <p>{error.message}</p>
   }
 
   return (
@@ -78,27 +71,27 @@ function AddUser() {
             type="text"
             {...register("name")}
             placeholder='Full Name'
-            className='w-full p-4 rounded-xl bg-white/10 border border-white/20 outline-none focus:ring-2 focus:ring-purple-400'
+            className='w-full p-4 rounded-xl bg-white/10 border border-white/20'
           />
 
           <input
             type="email"
             {...register("email")}
             placeholder='Email Address'
-            className='w-full p-4 rounded-xl bg-white/10 border border-white/20 outline-none focus:ring-2 focus:ring-purple-400'
+            className='w-full p-4 rounded-xl bg-white/10 border border-white/20'
           />
 
           <input
             type="date"
             {...register("dateOfBirth")}
-            className='w-full p-4 rounded-xl bg-white/10 border border-white/20 outline-none focus:ring-2 focus:ring-purple-400'
+            className='w-full p-4 rounded-xl bg-white/10 border border-white/20'
           />
 
           <input
             type="number"
             {...register("mobileNumber")}
             placeholder='Mobile Number'
-            className='w-full p-4 rounded-xl bg-white/10 border border-white/20 outline-none focus:ring-2 focus:ring-purple-400'
+            className='w-full p-4 rounded-xl bg-white/10 border border-white/20'
           />
 
           <button
