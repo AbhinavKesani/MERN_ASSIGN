@@ -4,16 +4,12 @@ import { useNavigate } from 'react-router-dom'
 
 function AddUser() {
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors }
-  } = useForm()
+  const { register, handleSubmit } = useForm()
 
-  let [loading, setLoading] = useState(false)
-  let [error, setError] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
 
-  let navigate = useNavigate()
+  const navigate = useNavigate()
 
   const onUserCreate = async (newUser) => {
 
@@ -22,7 +18,7 @@ function AddUser() {
 
     try {
 
-      let res = await fetch("http://localhost:3000/user-api/users", {
+      const res = await fetch("http://localhost:3000/user-api/users", {
         method: "POST",
         headers: {
           "Content-type": "application/json"
@@ -30,7 +26,7 @@ function AddUser() {
         body: JSON.stringify(newUser)
       })
 
-      let result = await res.json()
+      const result = await res.json()
 
       if (res.status === 201) {
         navigate("/users-list")
@@ -48,7 +44,7 @@ function AddUser() {
     }
   }
 
-  if (loading === true) {
+  if (loading) {
     return (
       <p className='text-center text-2xl text-blue-500'>
         Loading...
@@ -56,16 +52,15 @@ function AddUser() {
     )
   }
 
-  if (error !== null) {
+  if (error) {
     return (
-      <p className='text-2xl text-center text-red-500'>
+      <p className='text-center text-2xl text-red-500'>
         {error.message}
       </p>
     )
   }
 
   return (
-
     <div className='flex items-center justify-center min-h-screen px-4'>
 
       <div className='glass hover-card w-full max-w-md p-10 rounded-3xl'>
