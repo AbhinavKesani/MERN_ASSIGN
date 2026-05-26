@@ -85,4 +85,7 @@ return (
       </form>
     </div>
   </div>
-)
+  )
+}
+
+export default AddUser
