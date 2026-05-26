@@ -17,14 +17,13 @@ function AddUser() {
     setError(null)
 
     try {
-
-      const res = await fetch("https://mern-assign-backend-uidb.onrender.com",) {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json"
-        },
-        body: JSON.stringify(newUser)
-      })
+const res = await fetch("https://mern-assign-backend-uidb.onrender.com/user-api/users", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(userObj),
+});
 
       const result = await res.json()
 
