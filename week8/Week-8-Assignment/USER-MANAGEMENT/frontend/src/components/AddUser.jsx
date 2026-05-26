@@ -37,33 +37,52 @@ function AddUser() {
   if (error!==null){
     return <p className='text-2xl text-center text-red-500'>{error.message}</p>
   }
-  return (
-    <div className='flex flex-col items-center justify-center min-h-[60vh]'>
-      <div className= 'p-8 w-full max-w-md'>
-        <h1 className='text-3xl font-bold text-gray-800 mb-6 text-center'>Add New User</h1>
+return (
+  <div className='flex items-center justify-center min-h-screen px-4'>
+    
+    <div className='glass hover-card w-full max-w-md p-10 rounded-3xl'>
+      
+      <h1 className='text-4xl font-extrabold text-center mb-8'>
+        Add New User
+      </h1>
 
-        <form onSubmit={handleSubmit(onUserCreate)} className='space-y-4'>
-          <div>
-            <input type="text" {...register("name")} className='w-full p-3 border-2 rounded-md outline-none transition-colors' placeholder='Full Name' />
-          </div>
+      <form onSubmit={handleSubmit(onUserCreate)} className='space-y-5'>
 
-          <div>
-            <input type="email" {...register("email")} className='w-full p-3 border-2 rounded-md outline-none transition-colors' placeholder='Email Address' />
-          </div>
+        <input
+          type="text"
+          {...register("name")}
+          placeholder='Full Name'
+          className='w-full p-4 rounded-xl bg-white/10 border border-white/20 outline-none focus:ring-2 focus:ring-purple-400'
+        />
 
-          <div>
-            <input type="date" {...register("dateOfBirth")} className='w-full p-3 border-2 rounded-md outline-none transition-colors' />
-          </div>
+        <input
+          type="email"
+          {...register("email")}
+          placeholder='Email Address'
+          className='w-full p-4 rounded-xl bg-white/10 border border-white/20 outline-none focus:ring-2 focus:ring-purple-400'
+        />
 
-          <div>
-            <input type="number" {...register("mobileNumber")} className='w-full p-3 border-2 rounded-md outline-none transition-colors' placeholder='Mobile Number' />
-          </div>
+        <input
+          type="date"
+          {...register("dateOfBirth")}
+          className='w-full p-4 rounded-xl bg-white/10 border border-white/20 outline-none focus:ring-2 focus:ring-purple-400'
+        />
 
-          <button type="submit" className='w-full py-3 rounded-md text-white font-semibold text-lg transition-allbg-blue-600 bg-blue-700 active:scale-[0.98]'>Create User</button>
-        </form>
-      </div>
+        <input
+          type="number"
+          {...register("mobileNumber")}
+          placeholder='Mobile Number'
+          className='w-full p-4 rounded-xl bg-white/10 border border-white/20 outline-none focus:ring-2 focus:ring-purple-400'
+        />
+
+        <button
+          type="submit"
+          className='gradient-btn w-full py-4 rounded-xl text-lg font-bold'
+        >
+          Create User
+        </button>
+
+      </form>
     </div>
-  )
-}
-
-export default AddUser
+  </div>
+)
