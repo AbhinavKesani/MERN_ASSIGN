@@ -1,16 +1,42 @@
 import React from 'react'
-import { NavLink } from 'react-router'
+import { Link } from 'react-router'
 
 function Header() {
   return (
-   <div className="flex justify-between items-center px-10 bg-blue-950 m-1">
-    <img src="https://cdn.pixabay.com/photo/2016/04/15/18/05/computer-1331579_1280.png" alt="" className='w-20 rounded-4xl' />
-    <ul className="flex gap-10 text-xl ">
-        <li><NavLink to="/" className={({isActive})=>isActive?"text-blue-400":"text-lime-50"}>Home</NavLink></li>
-        <li><NavLink to="add-user" className={({isActive})=>isActive?"text-blue-400":"text-lime-50"}>AddUser</NavLink></li>
-        <li><NavLink to="users-list" className={({isActive})=>isActive?"text-blue-400":"text-lime-50"}>Users List</NavLink></li>
-    </ul>
-   </div>
+    <header className='glass sticky top-0 z-50'>
+      
+      <div className='max-w-6xl mx-auto flex items-center justify-between px-6 py-4'>
+        
+        <h1 className='text-3xl font-black'>
+          User<span className='text-purple-400'>Hub</span>
+        </h1>
+
+        <nav className='flex gap-6 text-lg font-semibold'>
+          
+          <Link
+            className='hover:text-purple-300 transition-all'
+            to='/'
+          >
+            Home
+          </Link>
+
+          <Link
+            className='hover:text-purple-300 transition-all'
+            to='/add-user'
+          >
+            Add User
+          </Link>
+
+          <Link
+            className='hover:text-purple-300 transition-all'
+            to='/users-list'
+          >
+            Users
+          </Link>
+
+        </nav>
+      </div>
+    </header>
   )
 }
 
