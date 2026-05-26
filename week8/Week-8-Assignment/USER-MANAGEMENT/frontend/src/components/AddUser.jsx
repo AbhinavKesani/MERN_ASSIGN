@@ -16,7 +16,7 @@ function AddUser() {
     setLoading(true)
     setError(null)
 
-   try {
+ try {
 
   const res = await fetch("https://mern-assign-backend-uidb.onrender.com/user-api/users", {
     method: "POST",
@@ -25,6 +25,10 @@ function AddUser() {
     },
     body: JSON.stringify(userObj),
   });
+
+} catch (err) {
+  console.log(err);
+}
 
 } catch (err) {
   console.log(err);
