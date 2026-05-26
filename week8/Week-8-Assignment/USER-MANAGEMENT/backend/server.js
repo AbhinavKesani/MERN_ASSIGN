@@ -4,53 +4,71 @@ import { connect } from 'mongoose'
 import { config } from 'dotenv'
 import cors from 'cors'
 
-// dotenv
-config();
-//create Http Server
-const app=exp()
+// dotenv configuration
+config()
 
-//add cors
-app.use(cors({
-  origin:["http://localhost:5173"]
-}))
-//body parser middleware
+// create express app
+const app = exp()
+
+// cors middleware
+app.use(cors())
+
+// body parser middleware
 app.use(exp.json())
-app.use("/user-api",UserApp)
 
+// routes
+app.use("/user-api", UserApp)
+
+// database connection
 async function ConnectDB() {
-    try{
-        await connect(process.env.MONGODB_URL)
-        console.log("Connected to DataBase")
-        app.listen(process.env.PORT,()=>console.log("Server is running on port 3000"))
-    }
-    catch(e){
-        throw new Error("DataBase Connection Failed")
-    }
+
+  try {
+
+    await connect(process.env.MONGODB_URL)
+
+    console.log("Connected to Database")
+
+    app.listen(process.env.PORT, () => {
+      console.log(`Server is running on port ${process.env.PORT}`)
+    })
+
+  } catch (e) {
+
+    console.log(e)
+
+    throw new Error("Database Connection Failed")
+  }
 }
+
 ConnectDB()
 
+// global error handling middleware
+app.use((err, req, res, next) => {
 
-app.use((err,req,res,next)=>{
-  // Mongoose validation error
+  // mongoose validation error
   if (err.name === "ValidationError") {
     return res.status(400).json({
       message: "Validation failed",
       errors: err.errors,
-    });
+    })
   }
-  // Invalid ObjectId
+
+  // invalid object id
   if (err.name === "CastError") {
     return res.status(400).json({
       message: "Invalid ID format",
-    });
+    })
   }
-  // Duplicate key
+
+  // duplicate key error
   if (err.code === 11000) {
     return res.status(409).json({
       message: "Duplicate field value",
-    });
+    })
   }
+
+  // internal server error
   res.status(500).json({
     message: "Internal Server Error",
-  });
-});
+  })
+})
