@@ -7,7 +7,7 @@ function UsersList() {
   useEffect(()=>{
     async function getUsers() {
       try {
-        let res=await fetch("http://localhost:3000/user-api/users")
+        let res=await fetch("https://mern-assign-backend-uidb.onrender.com")
         if (res.status===200){
           let userData = await res.json()
           setUsers(userData)
