@@ -5,13 +5,33 @@ export const UserApp = exp.Router()
 //User API Routes
 
 //Create User
-UserApp.post("/users",async (req,res)=>{
-    //get new user
-    let newUser=req.body
-    // create user document
+UserApp.post("/users", async (req, res) => {
+
+  try {
+
+    let newUser = req.body
+
+    console.log(newUser)
+
     let newUserDoc = new UserModel(newUser)
+
     await newUserDoc.save()
-    res.status(201).json({message:"User Created",payload:newUserDoc})
+
+    res.status(201).json({
+      message: "User Created",
+      payload: newUserDoc
+    })
+
+  } catch (err) {
+
+    console.log(err)
+
+    res.status(500).json({
+      message: err.message
+    })
+
+  }
+
 })
 //read all users
 UserApp.get("/users",async (req,res)=>{
