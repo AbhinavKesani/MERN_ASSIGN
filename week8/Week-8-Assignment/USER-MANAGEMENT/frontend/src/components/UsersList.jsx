@@ -1,36 +1,27 @@
-import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router'
+useEffect(() => {
 
-function UsersList() {
-   let [user,setUsers]=useState([])
-   let navigate = useNavigate()
-  useEffect(()=>{
-    async function getUsers() {
-      try {
-        let res=await fetch("https://mern-assign-backend-uidb.onrender.com/user-api/users")
-        if (res.status===200){
-          let userData = await res.json()
-          setUsers(userData)
-          console.log(userData)
-        } else {
-          throw new Error("Failed to fetch")
-        }
-      } catch (err) {
-        setError(err)
-      }
-      
+  const getUsers = async () => {
+
+    try {
+
+      const res = await fetch(
+        "https://mern-assign-backend-uidb.onrender.com/user-api/users"
+      )
+
+      const data = await res.json()
+
+      console.log(data)
+
+      setUsers(data.payload)
+
+    } catch (err) {
+
+      console.log(err)
+
     }
-    getUsers()
-  },[])
 
-  return (
-    <div>
-      <h1>List of Users</h1>
-      {
+  }
 
-      }
-    </div>
-  )
-}
+  getUsers()
 
-export default UsersList
+}, [])
