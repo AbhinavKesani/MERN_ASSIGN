@@ -24,7 +24,9 @@ async function ConnectDB() {
 
   try {
 
-    await connect(process.env.MONGODB_URL)
+    await connect(process.env.MONGODB_URL, {
+  dbName: "userdb"
+})
 
     console.log("Connected to Database")
 
