@@ -19,7 +19,7 @@ function AddUser() {
     try {
 
       const res = await fetch(
-       "https://mern-assign-backend-uidb.onrender.com",
+        "https://mern-assign-backend-uidb.onrender.com/user-api/users",
         {
           method: "POST",
           headers: {
