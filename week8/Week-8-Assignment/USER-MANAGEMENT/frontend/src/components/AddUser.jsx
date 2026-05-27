@@ -16,34 +16,34 @@ function AddUser() {
     setLoading(true)
     setError(null)
 
- try {
+    try {
 
-  const res = await fetch("https://mern-assign-backend-uidb.onrender.com/user-api/users", { {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(userObj),
-  });
-
-} catch (err) {
-  console.log(err);
-}
-
-} catch (err) {
-  console.log(err);
-}
+      const res = await fetch(
+        "https://mern-assign-backend-uidb.onrender.com/user-api/users",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newUser),
+        }
+      )
 
       const result = await res.json()
 
-      if (res.status === 201) {
+      if (res.status === 201 || res.ok) {
+
         navigate("/users-list")
+
       } else {
+
         throw new Error(result.message || "Error occurred")
+
       }
 
     } catch (err) {
 
+      console.log(err)
       setError(err)
 
     } finally {
@@ -51,6 +51,7 @@ function AddUser() {
       setLoading(false)
 
     }
+
   }
 
   if (loading) {
