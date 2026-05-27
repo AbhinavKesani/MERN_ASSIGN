@@ -1,16 +1,53 @@
-# React + Vite
+# UserHub — MERN Stack User Management Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+UserHub is a modern full-stack MERN application developed to manage user information efficiently through a clean and responsive interface. The application allows users to create, store, and view user details using a fully connected frontend and backend architecture.
 
-Currently, two official plugins are available:
+The project was built using React.js and Vite for the frontend, Node.js and Express.js for the backend, and MongoDB Atlas as the cloud database service. The application demonstrates complete CRUD-based backend integration, REST API communication, database connectivity, and deployment workflows using modern web technologies.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+# Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Add new users through a responsive form
+- Store user data securely in MongoDB Atlas
+- Display all users dynamically from the database
+- REST API integration between frontend and backend
+- Responsive and modern UI design
+- Backend hosted on Render
+- Frontend deployed using Vercel
+- Environment variable configuration for secure deployment
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Tech Stack
+
+## Frontend
+- React.js
+- Vite
+- Tailwind CSS
+- React Router DOM
+- React Hook Form
+
+## Backend
+- Node.js
+- Express.js
+- MongoDB Atlas
+- Mongoose
+
+---
+
+# Project Structure
+
+```bash
+USER-MANAGEMENT
+│
+├── frontend
+│   ├── src
+│   ├── public
+│   └── package.json
+│
+├── backend
+│   ├── APIs
+│   ├── models
+│   ├── server.js
+│   └── package.json
